@@ -8,7 +8,7 @@ import axios from 'axios';
 window.Tether = Tether;
 
 function Home() {
-    const [count, setCount] = useState(0);
+    const [question, setQuestion] = useState("");
 
     // Async function to generate answer
     async function generateAnswer(event) {
@@ -20,8 +20,8 @@ function Home() {
                 url: "https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash-latest:generateContent?key=AIzaSyAHourGI4um3wLcLun1pPuHfY5oSMeu4pQ",
                 method: "post",
                 data: {
-                    "contents": [
-                        { "parts": [{ "text": "what is the capital of sri lanka" }] },
+                    contents: [
+                        { parts: [{ text:  question}] },
                     ],
                 },
             });
@@ -66,7 +66,7 @@ function Home() {
                       
                         
                             
-                            <input  type="text" id="chat-input" placeholder="Send a message..." />
+                            <textarea value={question} onChange={(e)=>setQuestion(e.target.value)} type="text" id="chat-input" placeholder="Send a message..." />
                             <button onClick={generateAnswer} type="submit" className="chat-submit" id="chat-submit">
                                 <i className="material-icons">send</i>
                             </button>
