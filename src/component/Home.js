@@ -21,7 +21,7 @@ function Home() {
                 method: "post",
                 data: {
                     "contents": [
-                        { "parts": [{ "text": "what is sri lanka" }] },
+                        { "parts": [{ "text": "what is the capital of sri lanka" }] },
                     ],
                 },
             });
